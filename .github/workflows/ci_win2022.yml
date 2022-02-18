@@ -24,6 +24,7 @@ jobs:
         cd build
         go build -o git-lfs.exe
         cd ..
+        echo -e "\n$PATH\n"
         git-lfs version
         git lfs version
         echo "============"
