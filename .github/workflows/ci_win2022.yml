@@ -10,8 +10,9 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.0'
-      - shell: "C:/Program Files/Git/bin/bash.exe" --noprofile --norc -e -o pipefail {0}
-        run: |
+      - run: echo "$pwd\build" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - run: echo "C:/Program Files/Git/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - run: |
           git version
           git-lfs version
           git lfs version
@@ -30,4 +31,4 @@ jobs:
           echo "============"
           where git-lfs
           echo "============"
-
+        shell: bash
